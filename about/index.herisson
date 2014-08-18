@@ -1,0 +1,11 @@
+---
+name: "about"
+title: "About"
+herisson_url: urlAbout
+permalink: -
+---
+
+<h1>{{ 'hello'|trans }} {{ 'world'|trans }}</h1>
+<p>Debug (site.lang): {{ site.lang }}</p>
+
+

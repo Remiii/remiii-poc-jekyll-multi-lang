@@ -1,0 +1,9 @@
+#Github page settings
+lsi: false
+highlighter: true
+markdown: rdiscount
+
+destination: ./_site
+
+url: http://remibarbe.fr
+

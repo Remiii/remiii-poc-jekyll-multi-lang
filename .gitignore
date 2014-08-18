@@ -1,0 +1,6 @@
+*~
+.DS_Store
+_site/*
+_site-en/*
+_site-fr/*
+!.gitkeep
