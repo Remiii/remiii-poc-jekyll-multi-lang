@@ -1,8 +1,12 @@
 fr:
     hello: bonjour
     world: monde
+    urlHome: /
+    urlAbout: /a-propos/
 
 en:
     hello: hello
     world: world
+    urlHome: /
+    urlAbout: /about/
 

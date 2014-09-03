@@ -1,22 +1,26 @@
 # Multi language site with Jekyll
 
-This POC provide a solution in order to setup a multi language site with Jekyll (with URL rewrite and subdomain). Is builded around two plugins `herissonConverter.rb` and `i18nFilter.rb`.
+This POC provide a solution in order to setup a **multi language site with Jekyll** (with URL rewrite by subdomain). Is builded around two plugins `herissonConverter.rb` and `i18nFilter.rb`.
 
 Features:
 
-* URL rewriting (by subdomain)
-* Page translation
+* URL rewriting by subdomain (i.e. en.mydomainname.com fr.mydomainname.com es.mydomainname.com...) => provide by `herissonConverter.rb`
+* Page translation => provide by `i18nFilter.rb`
 
-## URL rewriter (by subdomain)
+## URL rewriter by subdomain
 
 Plugin `herissonConverter.rb`.
 
-Put URLs in the `_config-local.yml` file. Like this:
+Put URLs in the `_data/locales.yml` file. Like this:
 
 ```yml
-#_config-en.yml
-urlHome: /
-urlAbout: /about/
+#_data/locales.yml
+fr:
+    urlHome: /
+    urlAbout: /a-propos/
+en:
+    urlHome: /
+    urlAbout: /about/
 ```
 
 In the template add `herisson_url: namOfUrl` and `permalink: -` like this:
@@ -36,9 +40,10 @@ And rename templates from `.html` to `.herisson`.
 
 Plugin `i18nFilter.rb`.
 
-Put the translation in the `_data/locales.yml`. Like this:
+Put the translation in the `_data/locales.yml` file. Like this:
 
 ```yml
+#_data/locales.yml
 fr:
     hello: bonjour
     world: monde
@@ -59,7 +64,6 @@ In the template use the `trans` filter like this:
 ```
 -- about
 |   `-- index.herisson
-|-- _config-dev.yml
 |-- _config-en.yml
 |-- _config-fr.yml
 |-- _config.yml
@@ -85,8 +89,8 @@ In the template use the `trans` filter like this:
 ## Run Jekyll
 
 ```sh
-$ jekyll serve --config _config.yml,_config-dev.yml,_config-en.yml --watch
-$ jekyll serve --config _config.yml,_config-dev.yml,_config-fr.yml --watch
+$ jekyll serve --config _config.yml,_config-en.yml --watch
+$ jekyll serve --config _config.yml,_config-fr.yml --watch
 ...
 ```
 

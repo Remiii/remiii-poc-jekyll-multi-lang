@@ -1,9 +1,3 @@
 destination: ./_site-fr
 lang: fr
 
-###
-# URL
-###
-urlHome: /
-urlAbout: /a-propos/
-

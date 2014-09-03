@@ -11,11 +11,15 @@ module Jekyll
         if urlLine.class == String
           urlLineSplit = urlLine.split(': ')
           url = urlLineSplit[1].gsub(/\s|"|'/, '')
-          permalinkLineNew = 'permalink: ' + config[url]
+          dir = config['data_source']
+          filePath = File.join(dir, 'locales.yml')
+          locales = SafeYAML.load_file(filePath)
+          lang = config['lang']
+          print locales
+          permalinkLineNew = 'permalink: ' + locales[lang][url]
           permalinkLine = File.open( i, 'r').find { |line| line =~ /^permalink: *([\d\w\.\/\'\"\-]+)$/ }
           if permalinkLine.class == String
             mytext = File.read(i)
-            print 'titi - '
             File.open( i, 'w') { |file| file.puts mytext.gsub(/^permalink: *([\d\w\.\/\'\"\-]+)$/, permalinkLineNew)}
           end
         end
